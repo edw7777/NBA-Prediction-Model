@@ -6,8 +6,13 @@ from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 import ssl
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from dotenv import load_dotenv
+import os
 
-uri = "uri"
+load_dotenv()
+mongodb_uri = os.getenv('MONGODB_URI')
+
+uri = mongodb_uri
 client = MongoClient(uri, tlsAllowInvalidCertificates=True, server_api=ServerApi('1'))
 db = client.nba_data
 
