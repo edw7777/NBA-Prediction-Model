@@ -6,13 +6,18 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
 import os
+import certifi
 
 load_dotenv()
 mongodb_uri = os.getenv('MONGODB_URI')
+print(mongodb_uri)
 
-uri = mongodb_uri
+uri = "mongodb+srv://wangedw:Mymdb168@cluster0.kesjap8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(uri, tlsAllowInvalidCertificates=True, server_api=ServerApi('1'))
 db = client.nba_data
+
+# List databases
+print(client.list_database_names())
 
 try:
     client.admin.command('ping')
