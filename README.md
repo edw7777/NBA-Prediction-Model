@@ -8,3 +8,6 @@ Data Processing
 Model Architecture 
 Training the Model
 Evaluating the Model
+
+
+Utilized scripts from https://github.com/mhoude1/NBA_Model
